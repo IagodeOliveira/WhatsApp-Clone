@@ -9,13 +9,13 @@ const router = Router();
 const storage = multer.diskStorage({
   destination: (req: Request, file: Express.Multer.File, cb) => {
     if (file.mimetype.includes("audio/mpeg")) {
-      cb(null, "./tmp/audiotmp");
+      cb(null, "./server/tmp/audiotmp");
     }
     if (file.mimetype.includes("image/")) {
-      cb(null, "./tmp/imagetmp");
+      cb(null, "./server/tmp/imagetmp");
     }
     if (file.mimetype.includes("video/mp4")) {
-      cb(null, "./tmp/videotmp");
+      cb(null, "./server/tmp/videotmp");
     }
   },
   filename: (req: Request, file: Express.Multer.File, cb) => {
