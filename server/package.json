@@ -25,7 +25,7 @@
     "start-dev": "nodemon src_back/server.ts",
     "tsc": "tsc",
     "start": "node dist/server.js",
-    "postinstall": "npm run tsc && (npm start)"
+    "postinstall": "npm run tsc"
   },
   "keywords": [],
   "author": "",
