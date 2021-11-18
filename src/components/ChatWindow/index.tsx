@@ -191,7 +191,7 @@ export const ChatWindow = ({ guest }: IProps) => {
         body: formData,
       };
       try {
-        const response = await fetch("/upload", options);
+        const response = await fetch("https://young-oasis-68738.herokuapp.com/upload", options);
         const media = await response.json();
 
         let data: ISendData = {
