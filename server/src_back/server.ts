@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import router from "./routes";
 import path from "path";
@@ -11,7 +11,7 @@ app.use(router);
 
 app.use(express.static(path.join(__dirname, "../../build")));
 
-app.get("*", (req, res) => {
+app.get("*", (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "../../build/index.html"));
 });
 
