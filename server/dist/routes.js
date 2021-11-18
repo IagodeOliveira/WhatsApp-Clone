@@ -29,13 +29,13 @@ const router = (0, express_1.Router)();
 const storage = multer_1.default.diskStorage({
     destination: (req, file, cb) => {
         if (file.mimetype.includes("audio/mpeg")) {
-            cb(null, "./server/tmp/audiotmp");
+            cb(null, "./tmp/audiotmp");
         }
         if (file.mimetype.includes("image/")) {
-            cb(null, "./server/tmp/imagetmp");
+            cb(null, "./tmp/imagetmp");
         }
         if (file.mimetype.includes("video/mp4")) {
-            cb(null, "./server/tmp/videotmp");
+            cb(null, "./tmp/videotmp");
         }
     },
     filename: (req, file, cb) => {
@@ -65,5 +65,5 @@ const upload = (0, multer_1.default)({
 });
 router.use(express_1.default.urlencoded({ extended: true }));
 router.use(express_1.default.json());
-router.post("https://young-oasis-68738.herokuapp.com/upload", upload.array("data", 2), apiController_1.uploadFile);
+router.post("/upload", upload.array("data", 2), apiController_1.uploadFile);
 exports.default = router;
