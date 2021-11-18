@@ -65,5 +65,5 @@ const upload = (0, multer_1.default)({
 });
 router.use(express_1.default.urlencoded({ extended: true }));
 router.use(express_1.default.json());
-router.post("/upload", upload.array("data", 2), apiController_1.uploadFile);
+router.post("https://young-oasis-68738.herokuapp.com/upload", upload.array("data", 2), apiController_1.uploadFile);
 exports.default = router;
