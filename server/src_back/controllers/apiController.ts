@@ -90,7 +90,7 @@ export const uploadFile = async (req: Request, res: Response) => {
 
           file.destination = "./media";
           file.filename = `${file.filename}.jpeg`;
-          file.path = `media\\${file.filename}`;
+          file.path = `media/${file.filename}`;
           file.size = info.size;
           dataRef = ref(storage, `images/${file.filename}`);
         }
