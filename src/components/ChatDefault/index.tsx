@@ -1,8 +1,7 @@
-import React, { useState } from "react";
 import { Container } from  './styles';
 import whatsAppImage from './whatsappImage.jpg';
 
-export const ChatDefault: React.FC = () => {
+export const ChatDefault = () => {
   return (
     <Container>
       <img src={whatsAppImage} alt="Connection Required" />

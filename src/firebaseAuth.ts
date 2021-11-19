@@ -14,10 +14,10 @@ import {
   addDoc,
   Timestamp,
   updateDoc,
-  orderBy,
-  limit,
-  startAfter,
-  arrayUnion
+  arrayUnion,
+  // orderBy,
+  // limit,
+  // startAfter,
 } from "firebase/firestore";
 
 import {
@@ -41,15 +41,15 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 const db = getFirestore();
 
-//Auth dealing
+//Authentication handling
 const auth = getAuth();
-let auth2 = [] as any[];
+let author = [] as any[];
 
 export default {
   fbPopup: async () => {
     const provider = new FacebookAuthProvider();
     let result = await signInWithPopup(auth, provider);
-    auth2.push(auth);
+    author.push(auth);
     return result;
   },
 
@@ -61,7 +61,7 @@ export default {
 
   fbOut: async () => {
     try {
-      await signOut(auth2[0]);
+      await signOut(author[0]);
     } catch(error) {
       console.log(error);
     }
@@ -160,7 +160,7 @@ export default {
       let data = doc.data();
       if (data !== undefined && data.chats) {
         let chats = [...data.chats];
-        chats.sort((a: any, b: any): any => {
+        chats.sort((a: IChatUser, b: IChatUser): number => {
           if (
             a.lastMessage.lastMessageDate &&
             b.lastMessage.lastMessageDate &&
@@ -174,6 +174,7 @@ export default {
           if (a.lastMessage.lastMessageDate && !b.lastMessage.lastMessageDate) {
             return 1;
           }
+          return 0;
         });
         setChatList(chats);
       }

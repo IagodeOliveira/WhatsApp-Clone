@@ -113,6 +113,7 @@ export const DropDown = styled.div<IFocus>`
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.16);
   padding: 13px 0;
   display: ${(props) => props.all.drop};
+  z-index: 2;
 
   & * {
     padding: 13px 58px 13px 24px;

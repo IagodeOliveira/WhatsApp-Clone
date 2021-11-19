@@ -3,9 +3,9 @@ import {
   ChatListArea,
   Lines,
   Line,
-  Line_Name,
-  Line_Date,
-  Line_LastMsg,
+  LineName,
+  LineDate,
+  LineLastMsg,
 } from "./styles";
 
 import { IProps } from "./interfaces";
@@ -31,8 +31,8 @@ export const ChatListItem = ({ click, active, data }: IProps) => {
       data.lastMessage.lastMessageDate !== null
     ) {
       let d = new Date(data.lastMessage.lastMessageDate.seconds * 1000);
-      let hours: any = d.getHours();
-      let minutes: any = d.getMinutes();
+      let hours: string | number = d.getHours();
+      let minutes: string | number = d.getMinutes();
       hours = hours < 10 ? "0" + hours : hours;
       minutes = minutes < 10 ? "0" + minutes : minutes;
       setTime(`${hours}:${minutes}`);
@@ -44,11 +44,11 @@ export const ChatListItem = ({ click, active, data }: IProps) => {
       <img src={data.avatar ? data.avatar : ""} alt="avatar" />
       <Lines>
         <Line>
-          <Line_Name>{data.name}</Line_Name>
-          <Line_Date>{time}</Line_Date>
+          <LineName>{data.name}</LineName>
+          <LineDate>{time}</LineDate>
         </Line>
         <Line>
-          <Line_LastMsg all={all}>
+          <LineLastMsg all={all}>
             <div className="dad">
             {data.lastMessage.type === "text" && (
               <>
@@ -75,7 +75,7 @@ export const ChatListItem = ({ click, active, data }: IProps) => {
               )}
             </div>
             {data.unSeen > 0 && <span className="unSeen">{data.unSeen}</span>}
-          </Line_LastMsg>
+          </LineLastMsg>
         </Line>
       </Lines>
     </ChatListArea>

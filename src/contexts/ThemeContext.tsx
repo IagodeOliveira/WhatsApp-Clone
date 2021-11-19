@@ -1,8 +1,9 @@
 import React, { createContext, useContext, useReducer, Dispatch } from "react";
 
-import SearchReducer, { searchAction } from '../reducers/SearchReducer';
-import IncrementReducer, { AddUserAction } from '../reducers/AddUserReducer';
+import SearchReducer from '../reducers/SearchReducer';
+import IncrementReducer from '../reducers/AddUserReducer';
 import { IUser } from '../interfaces';
+import { AddUserAction, searchAction } from '../reducers/interfaces';
 
 type InitialStateType = {
   sIcon: boolean;

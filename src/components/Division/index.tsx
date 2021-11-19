@@ -25,7 +25,7 @@ import NewChat from "../NewChat";
 import { IChatUser, IUser, IFaceGoogleUser } from "../../interfaces";
 import { useStateValue } from "../../contexts/ThemeContext";
 
-export default () => {
+const Division = () => {
   const [activeChat, setActiveChat] = useState<IChatUser>({} as IChatUser);
   const [chatList, setChatList] = useState([] as IChatUser[]);
   const [chatFilter, setChatFilter] = useState([] as IChatUser[]);
@@ -83,11 +83,12 @@ export default () => {
 
   useEffect(() => {
     const updateSeen = async () => {
-      if (activeChat.chatId) {
-        if (!state.user) {
-          return;
-        }
-        await Api.updateLastSeen(state.user.id, activeChat.chatId, activeChat.to);
+      if (activeChat.chatId && state.user) {
+        await Api.updateLastSeen(
+          state.user.id,
+          activeChat.chatId,
+          activeChat.to
+        );
       }
     };
     updateSeen();
@@ -104,7 +105,7 @@ export default () => {
       },
     };
     await Api.addUser(newUser);
-    dispatch({ type: 'addUser', payload: newUser });
+    dispatch({ type: "addUser", payload: newUser });
   };
 
   const handleChatClick = async (index: number) => {
@@ -120,11 +121,14 @@ export default () => {
       await Api.fbOut();
       await Api.refreshUpdate(state.user.id);
     }
-    dispatch({ type: 'removeUser', payload: null });
-    setMoreIcon(false);
+    // setChatList([]);
+    // setActiveChat({} as IChatUser);
+    // setMoreIcon(false);
+    //dispatch({ type: 'removeUser', payload: null });
+    window.location.reload();
   };
 
-  const handleDonutIcon = (e: any) => {
+  const handleDonutIcon = () => {
     if (!firstClick) {
       setDonutIcon(true);
     } else {
@@ -135,7 +139,7 @@ export default () => {
     setMoreIcon(false);
   };
 
-  const handleChatIcon = (e: any) => {
+  const handleChatIcon = () => {
     setShow(true);
     if (!firstClick) {
       setChatIcon(true);
@@ -147,7 +151,7 @@ export default () => {
     setMoreIcon(false);
   };
 
-  const handleMoreIcon = (e: any) => {
+  const handleMoreIcon = () => {
     if (!firstClick) {
       setMoreIcon(true);
     } else {
@@ -185,11 +189,7 @@ export default () => {
 
   return (
     <>
-      <NewChat
-        show={show}
-        setShow={setShow}
-        setActiveChat={setActiveChat}
-      />
+      <NewChat show={show} setShow={setShow} setActiveChat={setActiveChat} />
       <Sidebar>
         <Header>
           <img src={state.user.avatar ? state.user.avatar : ""} alt="avatar" />
@@ -247,9 +247,7 @@ export default () => {
         </ChatList>
       </Sidebar>
       <ContentArea>
-        {activeChat.chatId !== undefined && (
-          <ChatWindow guest={activeChat} />
-        )}
+        {activeChat.chatId !== undefined && <ChatWindow guest={activeChat} />}
         {activeChat.chatId === undefined && <ChatDefault />}
       </ContentArea>
       <SearchContent width={state.sIcon ? 35 : 0}>
@@ -258,3 +256,5 @@ export default () => {
     </>
   );
 };
+
+export default Division;

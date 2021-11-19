@@ -2,7 +2,7 @@ import './App.css';
 import { AppProvider } from './contexts/ThemeContext';
 import Division from './components/Division';
 
-export default () => {
+const App = () => {
   return (
     <AppProvider>
       <div className="App">
@@ -11,3 +11,5 @@ export default () => {
     </AppProvider>
   );
 }
+
+export default App;

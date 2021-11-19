@@ -7,6 +7,7 @@ export const ChatListArea = styled.div<IColor>`
   height: 70px;
   cursor: pointer;
   background-color: ${(props) => props.all.backColor};
+  z-index: 1;
 
   &:hover {
     background-color: #F5F5F5;
@@ -47,17 +48,17 @@ export const Line = styled.div`
   width: 100%;
 `;
 
-export const Line_Name = styled.div`
+export const LineName = styled.div`
   font-size: 17px;
   color: #000;
 `;
 
-export const Line_Date = styled.div`
+export const LineDate = styled.div`
   font-size: 12px;
   color: #999;
 `;
 
-export const Line_LastMsg = styled.div<IColor>`
+export const LineLastMsg = styled.div<IColor>`
   font-size: 14px;
   color: #999;
   width: inherit;

@@ -47,7 +47,6 @@ export const ChatWindow = ({ guest }: IProps) => {
   const [listening, setListening] = useState(false);
   const [hasFile, setHasFile] = useState(false);
   const [messages, setMessages] = useState([] as IMessage[]);
-  const [messagesDate, setMessagesDate] = useState([] as string[]);
   const [chatUsers, setChatUsers] = useState([] as string[]);
   const [searchIcon, setSearchIcon] = useState(false);
   const [moreIcon, setMoreIcon] = useState(false);
@@ -84,16 +83,6 @@ export const ChatWindow = ({ guest }: IProps) => {
     const unsub = Api.onChatContent(guest.chatId, setMessages, setChatUsers);
     return unsub;
   }, [guest.chatId]);
-
-  useEffect(() => {
-    const ar = [];
-    if (messages.length > 0) {
-      for (let i in messages) {
-        ar.push(handleDate(messages[i].date));
-      }
-      setMessagesDate(ar);
-    }
-  }, [messages]);
 
   useEffect(() => {
     document.addEventListener("mouseup", (e) => {
@@ -218,7 +207,7 @@ export const ChatWindow = ({ guest }: IProps) => {
     setFile(null);
   };
 
-  const handleSearchIcon = (e: any) => {
+  const handleSearchIcon = () => {
     if (!firstClick) {
       setSearchIcon(true);
     } else {
@@ -230,7 +219,7 @@ export const ChatWindow = ({ guest }: IProps) => {
     setMoreIcon(false);
   };
 
-  const handleMoreIcon = (e: any) => {
+  const handleMoreIcon = () => {
     if (!firstClick) {
       setMoreIcon(true);
     } else {
@@ -241,7 +230,8 @@ export const ChatWindow = ({ guest }: IProps) => {
     setSearchIcon(false);
   };
 
-  const handleAttachIcon = (e: any) => {
+  const handleAttachIcon = () => {
+    if(close) setClose(false);
     if (!firstClick) {
       setAttachIcon(true);
     } else {
@@ -306,7 +296,7 @@ export const ChatWindow = ({ guest }: IProps) => {
                 <CloseIcon onClick={() => setHasFile(false)} />
               </div>
               {file.slice(5, 10) === "image" && (
-                <img src={file ? file : ""} alt="Image Preview" />
+                <img src={file ? file : ""} alt="Preview" />
               )}
               {file.slice(5, 10) === "audio" && (
                 <audio controls>

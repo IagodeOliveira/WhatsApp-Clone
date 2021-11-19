@@ -15,9 +15,9 @@ import { useStateValue } from "../../contexts/ThemeContext";
 import { IProps } from "./interfaces";
 
 
-export default ({ guest }: IProps) => {
+const SearchMsg = ({ guest }: IProps) => {
   const [focus, setFocus] = useState(false);
-  const { state, dispatch } = useStateValue();
+  const { dispatch } = useStateValue();
 
   const inpRef = useRef<HTMLInputElement>(null);
 
@@ -74,3 +74,5 @@ export default ({ guest }: IProps) => {
     </Container>
   );
 };
+
+export default SearchMsg;

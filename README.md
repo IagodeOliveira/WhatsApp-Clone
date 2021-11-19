@@ -1,46 +1,57 @@
-# Getting Started with Create React App
+# WhatsApp Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of contents
 
-## Available Scripts
+- [Overview](#overview)
+  - [Users should be able to](#users-should-be-able-to)
+  - [Screenshots](#screenshots)
+  - [Built with](#built-with)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
+- [Future customizations](#future-customizations)
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+### Users should be able to:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Log in using a Facebook or Google account
+- Start new chat
+- Exchange messages in real-time through text, emoji, images, videos and audios
+- See if his message was already seen by other users
+- See the last message(without open any chat) and know how many messages are still pending
+- Exchange text using speechRecognition
+- Preview media (and abort it) before uploading
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Screenshots
 
-### `npm test`
+![](./public/assets/LogInPage.jpg)
+![](./public/assets/ChatDefault.jpg)
+![](./public/assets/chatWindow.jpg)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Built with
 
-### `npm run build`
+Whatsapp Clone is a Realtime Chat App made basically using React, TypeScript, Node.js, Express and Firebase. Also Multer, Sharp and Styled-Components were used.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Heroku
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Whatsapp Clone Page at Heroku](https://young-oasis-68738.herokuapp.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Author
 
-### `npm run eject`
+- Website - [Iago D. de Oliveira Marques](https://github.com/IagodeOliveira/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Acknowledgments
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project was inspired on a course video at https://b7web.com.br.
+- The Link to the video - (https://www.youtube.com/watch?v=BkX4niTo9Ow)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Future customizations
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### In the near future I intend to add the following customizations:
 
-## Learn More
+- Delete messages and chats
+- Record your own audio
+- Upload more than one media at a time
+- Upload of images with subtitles/comments
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).

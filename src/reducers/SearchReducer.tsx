@@ -1,9 +1,7 @@
 
-export type searchAction = {
-  type: string;
-}
+import { searchAction } from './interfaces';
 
-export default (state: boolean, action: searchAction) => {
+const SearchReducer = (state: boolean, action: searchAction) => {
   switch(action.type) {
     case 'show':
       return true;
@@ -13,3 +11,5 @@ export default (state: boolean, action: searchAction) => {
       return false;
   }
 }
+
+export default SearchReducer;

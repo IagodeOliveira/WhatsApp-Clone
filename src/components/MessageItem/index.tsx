@@ -11,15 +11,15 @@ import { useStateValue } from "../../contexts/ThemeContext";
 import DoneAllIcon from "@material-ui/icons/DoneAll";
 import { IProps } from "./interfaces";
 
-export default ({ data, first }: IProps) => {
+const MessageItem = ({ data, first }: IProps) => {
   const [time, setTime] = useState("");
-  const { state, dispatch } = useStateValue();
+  const { state } = useStateValue();
 
   useEffect(() => {
     if (data.date && data.date.seconds > 0) {
       let d = new Date(data.date.seconds * 1000);
-      let hours: any = d.getHours();
-      let minutes: any = d.getMinutes();
+      let hours: string | number = d.getHours();
+      let minutes: string | number = d.getMinutes();
       hours = hours < 10 ? "0" + hours : hours;
       minutes = minutes < 10 ? "0" + minutes : minutes;
       setTime(`${hours}:${minutes}`);
@@ -53,8 +53,8 @@ export default ({ data, first }: IProps) => {
         {data.media !== null && data.type === "image/jpeg" && (
           <ContainerImg all={all}>
             <div className="parent"></div>
-            <a className="aa" href={data.media.url} target="_blank">
-              <img src={data.media.url} alt="image" height="338" width="240" />
+            <a className="aa" href={data.media.url} target="_blank" rel="noreferrer">
+              <img src={data.media.url} alt="random" height="338" width="240" />
             </a>
             <MessageDate className="imgMsg" all={all} seenTrue={imgVideo}>
               {time}
@@ -90,3 +90,5 @@ export default ({ data, first }: IProps) => {
     </>
   );
 };
+
+export default MessageItem;

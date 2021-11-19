@@ -3,7 +3,7 @@ import firebaseAuth from '../../firebaseAuth';
 import { ParticleBackground } from '../ParticleBackground';
 import { ILogin } from './interfaces';
 
-export default ({ onReceive }: ILogin) => {
+const Login = ({ onReceive }: ILogin) => {
   const handleFacebookLogin = async () => {
     const result = await firebaseAuth.fbPopup();
     if(result) {
@@ -38,3 +38,5 @@ export default ({ onReceive }: ILogin) => {
     </>
   )
 }
+
+export default Login;

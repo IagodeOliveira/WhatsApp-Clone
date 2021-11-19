@@ -1,11 +1,7 @@
 import { IUser } from '../interfaces';
+import { AddUserAction } from './interfaces';
 
-export type AddUserAction = {
-  type: string;
-  payload: IUser | null;
-}
-
-export default (state: IUser | null, action: AddUserAction) => {
+const AddUseReducer =  (state: IUser | null, action: AddUserAction) => {
   switch (action.type) {
     case 'addUser':
       return action.payload;
@@ -15,3 +11,5 @@ export default (state: IUser | null, action: AddUserAction) => {
       return state;
   }
 }
+
+export default AddUseReducer;

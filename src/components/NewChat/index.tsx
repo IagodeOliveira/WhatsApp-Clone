@@ -15,12 +15,12 @@ import Api from "../../firebaseAuth";
 import { IUser } from "../../interfaces";
 import { IProps } from "./interfaces";
 
-export default ({ show, setShow, setActiveChat }: IProps) => {
+const NewChat = ({ show, setShow, setActiveChat }: IProps) => {
   const [list, setList] = useState([] as IUser[]);
   const [chatFilter, setChatFilter] = useState([] as IUser[]);
   const [focus, setFocus] = useState(false);
 
-  const { state, dispatch } = useStateValue();
+  const { state } = useStateValue();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const all = {
@@ -133,3 +133,5 @@ export default ({ show, setShow, setActiveChat }: IProps) => {
     </Container>
   );
 };
+
+export default NewChat;
