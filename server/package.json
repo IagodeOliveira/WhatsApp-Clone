@@ -24,10 +24,9 @@
   "scripts": {
     "start-dev": "nodemon src_back/server.ts",
     "tsc": "tsc",
-    "start": "node dist/server.js",
-    "postinstall": "npm run tsc"
+    "start": "npm run tsc && node dist/server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Iago Dimitrius de Oliveira Marques",
   "license": "ISC"
 }

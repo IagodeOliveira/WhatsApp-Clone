@@ -25,7 +25,9 @@
 ### Screenshots
 
 ![](./public/assets/LogInPage.jpg)
+
 ![](./public/assets/ChatDefault.jpg)
+
 ![](./public/assets/chatWindow.jpg)
 
 ## Built with

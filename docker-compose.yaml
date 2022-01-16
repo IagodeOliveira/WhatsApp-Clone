@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  server:
+    env_file: './server/.env'
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile
+    image: 'whats-backend'
+    ports:
+      - '5000:5000'
+    volumes:
+      - ./server:/home/node/app
+
+  frontend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: 'whats-frontend'
+    ports:
+      - '3000:3000'
+    env_file: './.env'
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
